@@ -28,7 +28,7 @@ function App() {
       parameters.iterations,
     );
     setSoving(false);
-  }, [solving, parameters]);
+  }, [solving, parameters, wcaSolver]);
 
   const _handleParametersChange = (fieldname: string, value: number) => {
     setParameters((state) => ({ ...state, [fieldname]: value }));
