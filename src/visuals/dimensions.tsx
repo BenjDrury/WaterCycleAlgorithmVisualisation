@@ -48,7 +48,7 @@ const DimensionsVisualisation: FC<DimensionsVisualisationProps> = ({
   useEffect(() => {
     const newDatas: Array<Array<Data>> = [];
 
-    wcaSolver.getStoredIterations.map((iterationData, iterationIndex) => {
+    wcaSolver.getStoredIterations.forEach((iterationData, iterationIndex) => {
       let newData: Array<Data> = [];
 
       // Add optimal data
@@ -60,7 +60,7 @@ const DimensionsVisualisation: FC<DimensionsVisualisationProps> = ({
         ),
       );
 
-      iterationData.slice(Nsr, Npop).map((river) => {
+      iterationData.slice(Nsr, Npop).forEach((river) => {
         newData.push({
           x: river.values.map((value) => value),
           y: river.values.map((_, index) => index),
@@ -70,7 +70,7 @@ const DimensionsVisualisation: FC<DimensionsVisualisationProps> = ({
           marker: { color: "grey" },
         });
       });
-      iterationData.slice(1, Nsr).map((river) => {
+      iterationData.slice(1, Nsr).forEach((river) => {
         newData.push({
           x: river.values.map((value) => value),
           y: river.values.map((_, index) => index),
@@ -80,7 +80,7 @@ const DimensionsVisualisation: FC<DimensionsVisualisationProps> = ({
           marker: { color: "blue" },
         });
       });
-      iterationData.slice(0, 1).map((sea) => {
+      iterationData.slice(0, 1).forEach((sea) => {
         newData.push({
           x: sea.values.map((value) => value),
           y: sea.values.map((_, index) => index),
@@ -96,7 +96,7 @@ const DimensionsVisualisation: FC<DimensionsVisualisationProps> = ({
     // _startAnimation();
 
     setDatas(newDatas);
-  }, [wcaSolver.getStoredIterations]);
+  }, [wcaSolver.getStoredIterations, LBs, Npop, Nsr, UBs]);
 
   return (
     <div>

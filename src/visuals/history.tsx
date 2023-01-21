@@ -85,7 +85,12 @@ const HistoryVisualisation: FC<HistoryVisualisationProps> = ({
       allData.push(newData);
     });
     setDatas((state) => allData);
-  }, [numberOfHistoryNodes, wcaSolver.getStoredIterations]);
+  }, [
+    numberOfHistoryNodes,
+    wcaSolver.getStoredIterations,
+    wcaSolver.getIntensities,
+    Nsr,
+  ]);
 
   return (
     <div>

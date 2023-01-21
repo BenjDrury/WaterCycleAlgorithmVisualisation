@@ -1,8 +1,7 @@
-import { Data } from "plotly.js";
 import { ChangeEvent, useEffect, useState } from "react";
 
 import { WCASolver } from "./logic/wca-solver";
-import { A1Problem, A2Problem } from "./problems";
+import { A2Problem } from "./problems";
 import { Problem } from "./logic/problem";
 import RiverVisualisation from "./visuals/river";
 import HistoryVisualisation from "./visuals/history";
@@ -29,7 +28,7 @@ function App() {
       parameters.iterations,
     );
     setSoving(false);
-  }, [solving]);
+  }, [solving, parameters]);
 
   const _handleParametersChange = (fieldname: string, value: number) => {
     setParameters((state) => ({ ...state, [fieldname]: value }));

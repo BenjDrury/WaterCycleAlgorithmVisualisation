@@ -79,7 +79,7 @@ const RiverVisualisation: FC<RiverVisualisationProps> = ({
       allData.push(newData);
     });
     setDatas((state) => allData);
-  }, [wcaSolver.getStoredIterations]);
+  }, [wcaSolver.getStoredIterations, wcaSolver.getIntensities, Nsr]);
 
   return (
     <div>
