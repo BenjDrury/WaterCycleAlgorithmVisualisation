@@ -1,6 +1,13 @@
-## Available Scripts
+# WaterCycleAlgorithm
 
-In the project directory, you can run:
+JavaScript Implementation of the Water Cycle Algorithm as Visualisation & UI.
+
+# Prerequisites
+
+You need to install Node & NPM first to install and run all dependencies.
+Follow the instructions on https://docs.npmjs.com/downloading-and-installing-node-js-and-npm to install if you haven't already.
+
+# Run Code
 
 ### `npm start`
 
