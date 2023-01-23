@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
-import { WCASolver } from "./logic/wca-solver";
+import { WCASolver } from "WaterCycleAlgorithm/src/solver/wca-solver";
+import { Problem } from "WaterCycleAlgorithm/src/solver/problem";
 import { A2Problem } from "./problems";
-import { Problem } from "./logic/problem";
 import RiverVisualisation from "./visuals/river";
 import HistoryVisualisation from "./visuals/history";
 import DimensionsVisualisation from "./visuals/dimensions";

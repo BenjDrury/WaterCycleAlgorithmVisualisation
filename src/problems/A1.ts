@@ -1,4 +1,4 @@
-import { Problem } from "../logic/problem";
+import { Problem } from "WaterCycleAlgorithm/src/solver/problem";
 
 const mainProblem = ([x1, x2, x3, x4, x5, x6, x7]: Array<number>) =>
   (x1 - 10) * (x1 - 10) +
@@ -66,12 +66,7 @@ const constraints = [
   },
 ];
 
-const expectedSolution = {
-  cost: 680.630057,
-  values: [
-    2.334238, 1.950249, -0.474707, 4.366854, -0.619911, 1.0304, 1.594891,
-  ],
-};
+const expectedSolution = 680.630057;
 
 const A1Problem: Problem = new Problem(
   mainProblem, // main function

@@ -1,6 +1,6 @@
 import { Data } from "plotly.js";
 import { ChangeEvent, FC, useEffect, useState } from "react";
-import { WCASolver } from "../logic/wca-solver";
+import { WCASolver } from "../solver/wca-solver";
 import Simulator from "../simulator";
 
 interface RiverVisualisationProps {
