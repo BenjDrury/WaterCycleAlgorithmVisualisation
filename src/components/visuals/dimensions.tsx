@@ -1,5 +1,6 @@
 import { Data } from "plotly.js";
 import { ChangeEvent, FC, useEffect, useState } from "react";
+// @ts-expect-error ts sucks
 import { Raindrop } from "watercyclealgorithm/dist/solver/raindrop";
 import MyPlotlySimulator from "../my-plotly-simulator";
 import { Box, TextField, Typography } from "@mui/material";

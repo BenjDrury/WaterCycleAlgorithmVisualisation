@@ -1,3 +1,4 @@
+// @ts-expect-error ts sucks
 import { Problem } from "watercyclealgorithm/dist/solver/problem";
 import A1Problem from "./A1";
 import A2Problem from "./A2";
