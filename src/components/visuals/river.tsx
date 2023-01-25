@@ -84,6 +84,7 @@ const RiverVisualisation: FC<RiverVisualisationProps> = ({
       allData.push(newData);
     });
     setDatas((state) => allData);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [historyData]);
 
   return (

@@ -19,7 +19,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin({ typescript: { memoryLimit: 4096 } }),
+    new ForkTsCheckerWebpackPlugin({ typescript: { memoryLimit: 8192 } }),
   ],
   watchOptions: {
     // for some systems, watching many files can result in a lot of CPU or memory usage

@@ -93,6 +93,7 @@ const HistoryVisualisation: FC<HistoryVisualisationProps> = ({
       allData.push(newData);
     });
     setDatas((state) => allData);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [historyData, numberOfHistoryNodes]);
 
   return (

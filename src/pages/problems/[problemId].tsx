@@ -72,6 +72,7 @@ function ProblemByIdPage({ props }: any) {
     setIsLoading(false);
     setSolution(sol);
     setDuration(newDuration);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [execute, solution, duration]);
 
   const _handleExecuteWCA = async () => {

@@ -98,6 +98,7 @@ const DimensionsVisualisation: FC<DimensionsVisualisationProps> = ({
     });
 
     setDatas(newDatas);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [historyData]);
 
   return (

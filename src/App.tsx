@@ -1,7 +1,6 @@
-import { Router, RouterProvider, createBrowserRouter } from "react-router-dom";
+import {  RouterProvider, createBrowserRouter } from "react-router-dom";
 import IntroPage from "./pages/intro";
 import ProblemByIdPage from "./pages/problems/[problemId]";
-import Container from "@mui/material/Container";
 import Layout from "./components/layout";
 
 export default function App() {
