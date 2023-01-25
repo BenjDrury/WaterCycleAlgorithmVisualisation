@@ -34,6 +34,7 @@ const HistoryVisualisation: FC<HistoryVisualisationProps> = ({
   useEffect(() => {
     setNumberOfHistoryNodes(historyData.length - 1);
     setShowIteration(historyData.length - 1);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
