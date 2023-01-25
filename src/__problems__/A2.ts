@@ -1,4 +1,5 @@
-import { Problem } from "WaterCycleAlgorithm/src/solver/problem";
+// @ts-expect-error ts sucks
+import { Problem } from "watercyclealgorithm/dist/solver/problem";
 
 const mainProblem = ([x1, x2, x3, x4, x5]: Array<number>) =>
   5.3578547 * x3 * x3 * x3 + 0.8356891 * x1 * x5 + 37.293239 * x1 + 40729.141;

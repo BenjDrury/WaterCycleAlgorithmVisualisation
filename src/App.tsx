@@ -1,14 +1,11 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { Router, RouterProvider, createBrowserRouter } from "react-router-dom";
+import IntroPage from "./pages/intro";
+import ProblemByIdPage from "./pages/problems/[problemId]";
+import Container from "@mui/material/Container";
+import Layout from "./components/layout";
 
-import { WCASolver } from "WaterCycleAlgorithm/src/solver/wca-solver";
-import { Problem } from "WaterCycleAlgorithm/src/solver/problem";
-import { A2Problem } from "./problems";
-import RiverVisualisation from "./visuals/river";
-import HistoryVisualisation from "./visuals/history";
-import DimensionsVisualisation from "./visuals/dimensions";
-
-function App() {
-  const [problem] = useState<Problem>(A2Problem);
+export default function App() {
+  /*   const [problem] = useState<Problem>(A2Problem);
   const [wcaSolver] = useState<WCASolver>(new WCASolver(problem));
   const [solving, setSoving] = useState(true);
 
@@ -92,7 +89,22 @@ function App() {
         UBs={problem.getUB}
       />
     </div>
+  ); */
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <IntroPage />,
+    },
+    {
+      path: "problems/:problemId",
+      element: <ProblemByIdPage />,
+    },
+  ]);
+
+  return (
+    <Layout>
+      <RouterProvider router={router} />
+    </Layout>
   );
 }
-
-export default App;

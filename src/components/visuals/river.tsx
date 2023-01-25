@@ -1,16 +1,19 @@
 import { Data } from "plotly.js";
 import { ChangeEvent, FC, useEffect, useState } from "react";
-import { WCASolver } from "../solver/wca-solver";
-import Simulator from "../simulator";
+import { Raindrop } from "watercyclealgorithm/dist/solver/raindrop";
+import MyPlotlySimulator from "../my-plotly-simulator";
+import { Box, TextField, Typography } from "@mui/material";
 
 interface RiverVisualisationProps {
-  wcaSolver: WCASolver;
   Nsr: number;
+  intensities: Array<number>;
+  historyData: Array<Array<Raindrop>>;
 }
 
 const RiverVisualisation: FC<RiverVisualisationProps> = ({
-  wcaSolver,
   Nsr,
+  intensities,
+  historyData,
 }) => {
   const [datas, setDatas] = useState<Array<Array<Data>>>([
     [
@@ -27,11 +30,12 @@ const RiverVisualisation: FC<RiverVisualisationProps> = ({
   const [showIteration, setShowIteration] = useState<number>(0);
 
   useEffect(() => {
-    const intensities = wcaSolver.getIntensities;
-    const iterations = wcaSolver.getStoredIterations;
-    const allData: Array<Array<Data>> = [];
+    setShowIteration(historyData.length - 1);
+  }, []);
 
-    iterations.forEach((solution) => {
+  useEffect(() => {
+    const allData: Array<Array<Data>> = [];
+    historyData.forEach((solution) => {
       const newData: Array<Data> = [];
       let totalIntensity = Nsr;
 
@@ -79,21 +83,25 @@ const RiverVisualisation: FC<RiverVisualisationProps> = ({
       allData.push(newData);
     });
     setDatas((state) => allData);
-  }, [wcaSolver.getStoredIterations, wcaSolver.getIntensities, Nsr]);
+  }, [historyData]);
 
   return (
-    <div>
-      <span style={{ marginRight: "2rem" }}>River Visualisation</span>
-      <input
-        type="number"
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          setShowIteration(Number(e.target.value))
-        }
-        value={showIteration}
-      />
-      <br></br>
-      <Simulator data={datas[showIteration]} />
-    </div>
+    <Box>
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Typography variant="h5" style={{ marginRight: 8 }}>
+          Intensity Visualisation {"(Compare to river view)"}
+        </Typography>
+        <TextField
+          label="Iteration"
+          value={showIteration}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setShowIteration(Number(e.target.value))
+          }
+          type="number"
+        />
+      </Box>
+      <MyPlotlySimulator data={datas[showIteration]} />
+    </Box>
   );
 };
 

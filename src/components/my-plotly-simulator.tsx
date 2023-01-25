@@ -2,19 +2,19 @@ import Plot from "react-plotly.js";
 import { Data } from "plotly.js";
 import { FC } from "react";
 
-interface SimulatorProps {
+interface MyPlotlySimulatorProps {
   data: Array<Data>;
 }
 
-const Simulator: FC<SimulatorProps> = ({ data }) => {
+const MyPlotlySimulator: FC<MyPlotlySimulatorProps> = ({ data }) => {
   return (
     <Plot
       data={data ?? []}
       layout={{
         autosize: true,
-        width: window.innerWidth * 0.95,
-        height: window.innerHeight * 0.95,
-        title: { text: "A Fancy Plot", font: { color: "#ffffff" } },
+        width: 1000,
+        height: 800,
+        title: { text: "A Plot", font: { color: "#ffffff" } },
         scene: {
           aspectratio: {
             x: 1,
@@ -41,4 +41,4 @@ const Simulator: FC<SimulatorProps> = ({ data }) => {
   );
 };
 
-export default Simulator;
+export default MyPlotlySimulator;
